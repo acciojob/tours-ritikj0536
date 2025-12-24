@@ -4,19 +4,20 @@ const Tour = ({ id, image, info, name, price, removeTour }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
-    <article id={`tour-item-${id}`}>
+    <article>
       <img src={image} alt={name} />
-
       <h3>{name}</h3>
       <h4>${price}</h4>
 
+      {/* ✅ Cypress-required ID */}
       <p id={`tour-item-para-${id}`}>
-        {readMore ? info : `${info.substring(0, 200)}`}
+        {readMore ? info : `${info.substring(0, 200)}...`}
         <button onClick={() => setReadMore(!readMore)}>
           {readMore ? "See less" : "Show more"}
         </button>
       </p>
 
+      {/* ✅ Cypress-required ID */}
       <button
         id={`delete-btn-${id}`}
         className="remove-btn"
